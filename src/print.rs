@@ -3,6 +3,9 @@ use std::path::Path;
 use printers;
 
 pub fn print_file(file_path: impl AsRef<Path>) -> Result<(), String> {
+    // https://www.bchemnet.com/suldr/index.html
+    // driver for Samsung printers
+    
     let default_printer = default_printer();
     if default_printer.is_none() {
         return Err("No default printer found".to_string());
