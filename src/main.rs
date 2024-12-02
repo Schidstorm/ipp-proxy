@@ -28,7 +28,7 @@ impl SimpleIppServiceHandler for MyHandler {
             .unwrap()
             .as_secs();
 
-        let mime_type = document.format.clone().or(Some("application/octet-stream".to_string())).unwrap();
+        let mime_type = document.format.clone().unwrap_or("application/octet-stream".to_string());
         let file_extension = mime_type.split("/").last().unwrap();
 
         let unique_file_name = format!("./{}.print.{}", current_time_secs, file_extension);
